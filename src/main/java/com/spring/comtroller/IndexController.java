@@ -15,10 +15,7 @@ public class IndexController {
     public String indexReturn(@RequestParam("username") String username,
                               @RequestParam("password") String password){
         User user = login.login(username,password);
-        if (null == user){
-            return "error";
-        }
-        return "success";
+        return user == null ? "error":"success";
     }
     @RequestMapping("index")
     public String ret(){
